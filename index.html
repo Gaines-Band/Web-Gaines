@@ -6,6 +6,7 @@
     <title>Gaines - Official Website</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -28,27 +29,54 @@
         </div>
     </section>
 
+    <!-- Spotify -->
     <section class="music">
-        <div class="spotify-card">
-            <h3>Listen “Dirimu Diriku - The Gaines”</h3>
-            <a href="https://open.spotify.com/intl-id/track/0ckwkZHwswrI1TzaigvFnX?si=80d1c4a516634738" class="btn-spotify">Listen on Spotify</a>
+        <div class="music-container">
+            <h3>Listen “Dirimu Diriku - <a href="https://open.spotify.com/intl-id/artist/7ogQCjG4RucEl2UwiJ9OWg?si=g6_aL7lKSgebt-bS9kVWeg" target="_blank" class="artist-link">The Gaines</a>”</h3>
+            
+            <div class="album-wrapper">
+                <div class="vinyl">
+                    <div class="vinyl-label">
+                        <img src="Cover-Dirimu Diriku.jpg" alt="Label Dirimu Diriku">
+                    </div>
+                </div>
+                <div class="album-cover">
+                    <img src="Cover-Dirimu Diriku.jpg" alt="Cover Dirimu Diriku">
+                </div>
+            </div>
+
+            <div class="audio-player">
+            <p>Preview (30 Sec)</p>
+            <audio controls>
+                <source src="link-lagu-preview.mp3" type="audio/mpeg">
+                Browser kamu tidak mendukung pemutar musik.
+            </audio>
+        </div>
+
+            <a href="https://open.spotify.com/intl-id/album/7n2WNQPUTfHNUXPdL6pGDM?si=mrLUc6j1Q2KdSEcC5fcvag" target="_blank" class="btn-spotify">
+                <i class="fab fa-spotify"></i> Listen on Spotify
+            </a>
         </div>
     </section>
 
+    <!-- Merchandise -->
     <section class="merch">
         <h2>Gaines Apparel (Official Merchandise)</h2>
-        <p class="merch-title">Dirimu Diriku T-Shirt Special Edition!</p>
-
         <div class="product-grid">
-            <div class="product-item">
-                <div class="photo-placeholder">Photo: White</div>
-                <p>1. White</p>
-            </div>
-            <div class="product-item">
-                <div class="photo-placeholder">Photo: Black</div>
-                <p>2. Black</p>
-            </div>
+    <div class="product-item">
+        <div class="product-image-container">
+            <img src="Gaines Apparel White.jpg" alt="Gaines White T-Shirt" class="product-img">
         </div>
+        <p class="product-label">1. White Edition</p>
+    </div>
+
+    <div class="product-item">
+        <div class="product-image-container">
+            <img src="Gaines Apparel Black.jpg" alt="Gaines Black T-Shirt" class="product-img">
+        </div>
+        <p class="product-label">2. Black Edition</p>
+    </div>
+</div>
 
         <div class="merch-info">
             <h3>Size Chart</h3>
@@ -58,11 +86,12 @@
 
         <a href="https://wa.me/6281333887971?text=Mau%20order%20T-Shirt%20Dirimu%20Diriku%20warna%20...%20size%20..." class="btn-order">Order Now!</a>
         
-        <div class="contact-footer">
+        
             <p>Contact Person (WhatsApp)</p>
-             <a href="https://wa.me/6281333887971" target="_blank" class="wa-floating-btn">CP Gaines</a>
-            <p>081333887971</p>
-        </div>
+            <a href="https://wa.me/6281333887971" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Winfrie
+            </a>
+            
     </section>
 
 </body>
