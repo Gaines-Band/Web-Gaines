@@ -436,28 +436,123 @@ audio {
 }
 
 /* --- Penyesuaian Grid agar pas di Laptop --- */
+/* --- Styling Grid Produk Merch --- */
+
+/* Pengaturan Dasar Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dua kolom sejajar */
     gap: 40px;
-    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 20px;
+    max-width: 1000px;
+    padding: 20px;
 }
 
-/* --- Responsif untuk HP --- */
+/* GRID BARIS 1: Dua Kolom Sejajar (Untuk Baju) */
+.grid-main {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 20px; /* Jarak ke produk bawah */
+}
+
+/* GRID BARIS 2: Diposisikan di Tengah */
+.grid-centered {
+    display: flex;
+    justify-content: center; /* Membuat produk baris ini berada di tengah */
+}
+
+/* Item khusus untuk baris tengah agar ukurannya pas */
+.item-single {
+    width: 100%;
+    max-width: 400px; /* Ukuran maksimal produk persegi agar tidak terlalu besar di laptop */
+}
+
+/* --- Pengaturan Rasio Gambar (Kelas Baru) --- */
+
+/* Rasio 4:5 untuk Baju Atas (2048x2560) */
+.ratio-4-5 {
+    aspect-ratio: 4 / 5;
+}
+
+/* Rasio 1:1 untuk Produk Tengah (Persegi) */
+.ratio-1-1 {
+    aspect-ratio: 1 / 1;
+}
+
+/* --- Container Gambar Produk (Styling Umum) --- */
+.product-image-container {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #eeeeee;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Styling Gambar */
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Gambar memenuhi kotak */
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Efek Hover */
+.product-item:hover .product-image-container {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.product-item:hover .product-img {
+    transform: scale(1.05);
+}
+
+/* Badge Limited/Special */
+.badge-limited {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #000;
+    color: #fff;
+    padding: 5px 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 3;
+    letter-spacing: 1px;
+}
+
+/* Label Produk */
+.product-label {
+    margin-top: 15px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Responsif Mobile (HP) --- */
 @media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: 1fr; /* Jadi satu kolom bertumpuk di HP */
+    /* Gabungkan kedua grid menjadi satu kolom bertumpuk di HP */
+    .grid-main {
+        grid-template-columns: 1fr;
         gap: 30px;
     }
     
+    .product-grid {
+        padding: 10px;
+    }
+
     .product-item {
-        max-width: 350px; /* Agar tidak terlalu lebar di layar HP */
+        max-width: 350px;
         margin: 0 auto;
     }
+    
+    /* Item tunggal di HP dibuat lebarnya sama dengan yang lain */
+    .item-single {
+        max-width: 350px;
+    }
 }
-
 
 /* --- Styling Tombol WhatsApp --- */
 .btn-whatsapp {
@@ -514,4 +609,50 @@ audio {
     font-weight: bold;
     letter-spacing: 1px;
     margin-top: 10px;
+}
+
+/* --- Styling Tombol Order Now (Cart Icon) --- */
+.btn-order {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: #ffffff; /* Background putih agar kontras di section merch */
+    color: #000000;           /* Teks hitam */
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-decoration: none;
+    border-radius: 50px;      /* Pill shape */
+    transition: all 0.3s ease;
+    border: 2px solid #000000;
+    margin-top: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Styling Ikon Keranjang */
+.btn-order i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+/* Efek Hover */
+.btn-order:hover {
+    background-color: #000000; /* Balik warna jadi hitam */
+    color: #ffffff;           /* Teks jadi putih */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border: 2px solid #fff;
+}
+
+/* Efek Ikon bergerak saat hover */
+.btn-order:hover i {
+    transform: scale(1.2) rotate(-10deg);
+}
+
+/* Efek Klik */
+.btn-order:active {
+    transform: scale(0.95);
 }
