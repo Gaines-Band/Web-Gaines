@@ -106,8 +106,8 @@ section {
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
-    background-color: #e5b80b;
-    color: #121212;
+    background-color: #ffd500;
+    color: #000000;
     text-decoration: none;
     font-weight: bold;
     border-radius: 50px;
@@ -115,7 +115,7 @@ section {
 }
 
 .btn:hover {
-    background-color: #fff;
+    background-color: #000000;
     transform: translateY(-3px);
 }
 
@@ -176,6 +176,50 @@ footer p a {
 footer p a:hover {
     color: #e5b80b; /* Warna berubah menjadi putih saat kursor menyentuh */
     text-decoration: underline; /* Muncul garis bawah saat hover (opsional) */
+}
+
+.wa-floating-container {
+    display: flex;
+    justify-content: center; /* Memastikan tombol ada di tengah secara horizontal */
+    margin-top: 10px;       /* Jarak dari elemen di atasnya (kartu/konten) */
+    margin-bottom: 30px;    /* Jarak ke footer */
+    width: 100%;
+}
+
+.wa-info {
+    display: flex;
+    justify-content: left; /* Memastikan tombol ada di tengah secara horizontal */
+    margin-top: 10px;       /* Jarak dari elemen di atasnya (kartu/konten) */
+    margin-bottom: 30px;    /* Jarak ke footer */
+    width: 100%;
+}
+
+/* Gaya Tombol WA (Tetap sama, hanya hapus bayangan jika ingin lebih simpel) */
+.wa-floating-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #25d366;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid #25d366;
+}
+
+.wa-floating-btn:hover {
+    background-color: transparent; /* Background jadi bening saat hover */
+    color: #25d366;               /* Teks jadi hijau */
+    transform: translateY(-3px);
+}
+
+.wa-icon-svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
 }
 
 /* --- RESPONSIVE (HP) --- */
