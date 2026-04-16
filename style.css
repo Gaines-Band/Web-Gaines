@@ -217,7 +217,7 @@ footer p a:hover {
     nav ul li a {
         display: block;
         /* Memberi jarak teks dari pinggir frame kiri & kanan */
-        padding: 15px 3%; 
+        padding: 15px 5%; 
         /* Mengatur teks rata kiri (atau ganti 'center' jika ingin di tengah) */
         text-align: left; 
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
