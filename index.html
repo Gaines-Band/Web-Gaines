@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaines - Entertainment Band Malang</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="#home" class="logo">GAINES</a>
+        <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#portfolio">Portofolio</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>GAINES BAND</h1>
+            <p>Premium Entertainment Band based in Malang. We bring life, soul, and unforgettable music to your special moments.</p>
+            <a href="#contact" class="btn">Book Us Now</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Tentang Kami</h2>
+        <p class="about-text">
+            Gaines adalah band entertainment profesional yang berbasis di Malang, Jawa Timur. Kami memiliki spesialisasi dalam memberikan penampilan musik langsung untuk berbagai acara seperti Wedding, Corporate Gathering, Cafe, hingga Private Party.
+        </p>
+    </section>
+
+    <section id="portfolio">
+        <h2 class="section-title">Portofolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://picsum.photos/400/300?wedding" alt="Wedding">
+                <div class="portfolio-info">
+                    <h3>Wedding Reception</h3>
+                    <p>Penampilan elegan untuk hari spesial Anda.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://picsum.photos/400/300?concert" alt="Corporate">
+                <div class="portfolio-info">
+                    <h3>Corporate Event</h3>
+                    <p>Suasana meriah dan interaktif untuk perusahaan.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://picsum.photos/400/300?cafe" alt="Cafe">
+                <div class="portfolio-info">
+                    <h3>Cafe & Lounge</h3>
+                    <p>Sesi akustik santai namun berkelas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Kontak & Booking</h2>
+        <div class="contact-card">
+            <p>📍 <strong>Basecamp:</strong> Malang, Jawa Timur</p>
+            <p>📞 <strong>WhatsApp:</strong> +62 812-XXXX-XXXX</p>
+            <p>📷 <strong>Instagram:</strong> @gaines.band</p>
+            <br>
+            <a href="https://wa.me/6281200000000" class="btn" target="_blank">Hubungi Sekarang</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Gaines Band Malang.<br>Designed & maintained by <a href="https://github.com/Er1c911" target="_blank">Eric Fausta</a></p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // Menutup menu saat link diklik (di HP)
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

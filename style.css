@@ -1,0 +1,215 @@
+/* --- DASAR & RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* --- NAVIGASI --- */
+header {
+    background-color: rgba(18, 18, 18, 0.98);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e5b80b;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #e5b80b;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* --- SECTION UMUM --- */
+section {
+    padding: 100px 10% 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #e5b80b;
+    text-transform: uppercase;
+}
+
+/* --- HERO (JUDUL DENGAN BACKGROUND) --- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('Foto Gaines.jpeg') center/cover no-repeat;
+    /* background-attachment sengaja tidak diatur atau set ke scroll 
+       agar gambar ikut bergerak saat discroll */
+    background-attachment: scroll; 
+}
+
+.hero h1 {
+    font-size: 4rem;
+    letter-spacing: 5px;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+/* --- TOMBOL --- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #e5b80b;
+    color: #121212;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #fff;
+    transform: translateY(-3px);
+}
+
+/* --- PORTOFOLIO --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.portfolio-item {
+    background: #1e1e1e;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.portfolio-info {
+    padding: 1.5rem;
+}
+
+/* --- KONTAK --- */
+.contact-card {
+    background: #1e1e1e;
+    padding: 3rem;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 2rem;
+    text-align: center;
+    background: #000;
+    border-top: 1px solid #333;
+}
+
+/* --- STYLING FOOTER --- */
+footer p a {
+    color: #ffffff; /* Warna awal (sama dengan emas logo) */
+    text-decoration: none; /* Menghilangkan garis bawah default */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transisi halus saat berubah warna */
+}
+
+footer p a:hover {
+    color: #e5b80b; /* Warna berubah menjadi putih saat kursor menyentuh */
+    text-decoration: underline; /* Muncul garis bawah saat hover (opsional) */
+}
+
+/* --- RESPONSIVE (MOBILE) --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #121212;
+        flex-direction: column;
+        padding: 1rem 0;
+        border-bottom: 1px solid #333;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 1rem 0;
+        margin-left: 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
