@@ -178,38 +178,49 @@ footer p a:hover {
     text-decoration: underline; /* Muncul garis bawah saat hover (opsional) */
 }
 
-/* --- RESPONSIVE (MOBILE) --- */
+/* --- RESPONSIVE (HP) --- */
 @media (max-width: 768px) {
+    header {
+        padding: 1rem 5%; /* Perkecil padding agar tidak terlalu mepet di HP */
+    }
+
     .menu-toggle {
         display: block;
+        order: 2; /* Memastikan hamburger di posisi kanan */
+    }
+
+    .logo {
+        order: 0; /* Memastikan logo di posisi kiri */
     }
 
     nav ul {
-        display: none;
+        display: none; /* Sembunyikan menu secara default */
+        flex-direction: column;
         position: absolute;
-        top: 100%;
+        top: 100%; /* Muncul tepat di bawah header */
         left: 0;
         width: 100%;
-        background: #121212;
-        flex-direction: column;
+        background: rgba(18, 18, 18, 0.98);
         padding: 1rem 0;
         border-bottom: 1px solid #333;
+        text-align: left;
     }
 
     nav ul.active {
-        display: flex;
+        display: flex; /* Muncul saat tombol diklik */
     }
 
     nav ul li {
-        margin: 1rem 0;
+        margin: 15px 0; /* Memberi jarak antar menu agar mudah diklik jari */
         margin-left: 0;
     }
 
     .hero h1 {
         font-size: 2.5rem;
     }
-    
-    .section-title {
-        font-size: 2rem;
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 10px;
     }
 }
