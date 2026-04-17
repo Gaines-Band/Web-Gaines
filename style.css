@@ -81,13 +81,59 @@ section {
     text-transform: uppercase;
 }
 
-/* --- HERO (JUDUL DENGAN BACKGROUND) --- */
+/* --- HERO SLIDER --- */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('Foto Gaines.jpeg') center/cover no-repeat;
-    /* background-attachment sengaja tidak diatur atau set ke scroll 
-       agar gambar ikut bergerak saat discroll */
-    background-attachment: scroll; 
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 100%; /* Standby di kanan layar */
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: left 0.8s ease-in-out; /* Animasi geser */
+    z-index: 1;
+}
+
+/* Overlay Gelap agar teks terbaca */
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.slide.active {
+    left: 0; /* Posisi tampil */
+    z-index: 2;
+}
+
+.slide.exit {
+    left: -100%; /* Bergeser ke kiri */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 0 10%;
 }
 
 .hero h1 {
@@ -115,8 +161,13 @@ section {
 }
 
 .btn:hover {
-    background-color: #000000;
+    background-color: #ffffff;
     transform: translateY(-3px);
+}
+
+/* --- TENTANG KAMI --- */
+.about-text-container {
+    max-width: 800px;
 }
 
 /* --- PORTOFOLIO --- */
@@ -148,7 +199,7 @@ section {
     padding: 1.5rem;
 }
 
-/* --- KONTAK --- */
+/* --- KONTAK & WA --- */
 .contact-card {
     background: #1e1e1e;
     padding: 3rem;
@@ -157,44 +208,12 @@ section {
     max-width: 500px;
 }
 
-/* --- FOOTER --- */
-footer {
-    padding: 2rem;
-    text-align: center;
-    background: #000;
-    border-top: 1px solid #333;
-}
-
-/* --- STYLING FOOTER --- */
-footer p a {
-    color: #ffffff; /* Warna awal (sama dengan emas logo) */
-    text-decoration: none; /* Menghilangkan garis bawah default */
-    font-weight: bold;
-    transition: color 0.3s ease; /* Transisi halus saat berubah warna */
-}
-
-footer p a:hover {
-    color: #e5b80b; /* Warna berubah menjadi putih saat kursor menyentuh */
-    text-decoration: underline; /* Muncul garis bawah saat hover (opsional) */
-}
-
 .wa-floating-container {
     display: flex;
-    justify-content: center; /* Memastikan tombol ada di tengah secara horizontal */
-    margin-top: 10px;       /* Jarak dari elemen di atasnya (kartu/konten) */
-    margin-bottom: 30px;    /* Jarak ke footer */
-    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-.wa-info {
-    display: flex;
-    justify-content: left; /* Memastikan tombol ada di tengah secara horizontal */
-    margin-top: 10px;       /* Jarak dari elemen di atasnya (kartu/konten) */
-    margin-bottom: 30px;    /* Jarak ke footer */
-    width: 100%;
-}
-
-/* Gaya Tombol WA (Tetap sama, hanya hapus bayangan jika ingin lebih simpel) */
 .wa-floating-btn {
     display: flex;
     align-items: center;
@@ -205,15 +224,13 @@ footer p a:hover {
     padding: 12px 25px;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: 0.3s;
     border: 2px solid #25d366;
 }
 
 .wa-floating-btn:hover {
-    background-color: transparent; /* Background jadi bening saat hover */
-    color: #25d366;               /* Teks jadi hijau */
-    transform: translateY(-3px);
+    background-color: transparent;
+    color: #25d366;
 }
 
 .wa-icon-svg {
@@ -222,19 +239,32 @@ footer p a:hover {
     fill: currentColor;
 }
 
-/* --- RESPONSIVE (HP) --- */
+/* --- FOOTER --- */
+footer {
+    padding: 2rem;
+    text-align: center;
+    background: #000;
+    border-top: 1px solid #333;
+}
+
+footer p a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+footer p a:hover {
+    color: #e5b80b;
+    text-decoration: underline;
+}
+
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    header {
-        /* Memberi ruang di kiri-kanan logo dan hamburger */
-        padding: 1rem 8%; 
-    }
-
-    .menu-toggle {
-        display: block;
-        /* Memberi ruang sedikit dari pinggir kanan layar */
-        order : 2;
-    }
-
+    header { padding: 1rem 8%; }
+    .menu-toggle { display: block; order: 2; }
+    .hero h1 { font-size: 2.5rem; }
+    
     nav ul {
         display: none;
         flex-direction: column;
@@ -244,36 +274,12 @@ footer p a:hover {
         width: 100%;
         background: rgba(18, 18, 18, 0.98);
         padding: 1rem 0;
-        border-bottom: 1px solid #333;
-        /* Menghilangkan bullet point default */
-        list-style: none; 
     }
 
-    nav ul.active {
-        display: flex;
-    }
-
-    nav ul li {
-        margin: 0; 
-        width: 100%;
-    }
-
+    nav ul.active { display: flex; }
+    nav ul li { margin: 0; width: 100%; }
     nav ul li a {
-        display: block;
-        /* Memberi jarak teks dari pinggir frame kiri & kanan */
-        padding: 15px 5%; 
-        /* Mengatur teks rata kiri (atau ganti 'center' jika ingin di tengah) */
-        text-align: left; 
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    /* Hilangkan border bawah pada menu terakhir */
-    nav ul li:last-child a {
-        border-bottom: none;
-    }
-
-    /* Penyesuaian Hero agar teks tidak mepet layar */
-    .hero-content {
-        padding: 0 10%;
+        padding: 15px 5%;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 }
