@@ -22,6 +22,12 @@
     </header>
 
     <section id="home" class="hero">
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('Foto Gaines 1.jpeg');"></div>
+            <div class="slide" style="background-image: url('Foto Gaines 2.jpeg');"></div>
+            <div class="slide" style="background-image: url('Foto Gaines 3.jpeg');"></div>
+        </div>
+
         <div class="hero-content">
             <h1>GAINES BAND</h1>
             <p>Premium Entertainment Band based in Malang. We bring life, soul, and unforgettable music to your special moments.</p>
@@ -31,9 +37,9 @@
 
     <section id="about">
         <h2 class="section-title">Tentang Kami</h2>
-        <p class="about-text">
-            Gaines adalah band entertainment profesional yang berbasis di Malang, Jawa Timur. Kami memiliki spesialisasi dalam memberikan penampilan musik langsung untuk berbagai acara seperti Wedding, Corporate Gathering, Cafe, hingga Private Party.
-        </p>
+        <div class="about-text-container">
+            <p>Gaines adalah band entertainment profesional yang berbasis di Malang, Jawa Timur. Kami memiliki spesialisasi dalam memberikan penampilan musik langsung untuk berbagai acara seperti Wedding, Corporate Gathering, Cafe, hingga Private Party.</p>
+        </div>
     </section>
 
     <section id="portfolio">
@@ -69,7 +75,7 @@
             <p>📍 <strong>Basecamp:</strong> Malang, Jawa Timur</p>
             <p>📞 <strong>WhatsApp:</strong> +62 813-3388-7971</p>
             <p>📷 <strong>Instagram:</strong> @gaines.band</p>
-            <br>
+            
             <div class="wa-floating-container">
                 <a href="https://wa.me/6281333887971" target="_blank" class="wa-floating-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="wa-icon-svg">
@@ -79,7 +85,6 @@
                 </a>
             </div>
         </div>
-        
     </section>
 
     <footer>
@@ -87,6 +92,7 @@
     </footer>
 
     <script>
+        // MENU MOBILE LOGIC
         const menuToggle = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
 
@@ -94,12 +100,46 @@
             navList.classList.toggle('active');
         });
 
-        // Menutup menu saat link diklik (di HP)
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navList.classList.remove('active');
             });
         });
+
+        // HERO SLIDER LOGIC (ONE-WAY LEFT DIRECTION)
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            // 1. Slide lama geser keluar ke kiri
+            const oldSlide = slides[currentSlide];
+            oldSlide.classList.remove('active');
+            oldSlide.classList.add('exit');
+            
+            let previousIndex = currentSlide;
+
+            // 2. Update index ke slide berikutnya
+            currentSlide = (currentSlide + 1) % slides.length;
+            const newSlide = slides[currentSlide];
+
+            // 3. Masukkan slide baru dari kanan ke tengah
+            newSlide.classList.remove('exit'); // Pastikan bersih
+            newSlide.classList.add('active');
+
+            // 4. RESET: Pindahkan slide lama kembali ke kanan secara instan setelah animasi selesai
+            setTimeout(() => {
+                oldSlide.style.transition = 'none'; // Matikan transisi sementara
+                oldSlide.classList.remove('exit');  // Hapus class exit (otomatis ke left: 100%)
+                
+                // Trigger reflow agar browser sadar posisi sudah berubah
+                void oldSlide.offsetWidth; 
+                
+                oldSlide.style.transition = ''; // Hidupkan kembali transisi
+            }, 800); // 800ms sama dengan durasi di CSS
+        }
+
+        // Jalankan setiap 5 detik
+        setInterval(nextSlide, 5000);
     </script>
 </body>
 </html>
